@@ -1,10 +1,10 @@
 {
-  "name": "artemis-admin",
-  "version": "4.0.8-M4",
+  "name": "vihacker-admin",
+  "version": "1.0.7.R",
   "author": {
-    "name": "matevip",
-    "email": "7333791@qq.com",
-    "url": "https://github.com/matevip/artemis"
+    "name": "Ranger",
+    "email": "wilton.icp@gmail.com",
+    "url": "https://github.com/wiltonicp/vihacker-web.git"
   },
   "scripts": {
     "bootstrap": "yarn install",
