@@ -32,7 +32,7 @@ export function loginApi(params: LoginParams, mode: ErrorMessageMode = 'modal') 
         username: params.username,
         password: params.password,
         grant_type: 'password',
-        scope: 'all'
+        scope: 'all',
       },
     },
     {

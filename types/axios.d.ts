@@ -32,7 +32,7 @@ export interface Result<T = any> {
 
 export interface Data<T = any> {
   code: number;
-  message: string;
+  msg: string;
   time: string;
   data: T;
 }

@@ -1,5 +1,5 @@
 <template>
-  <PageWrapper title="关于Artemis Admin">
+  <PageWrapper title="ViHacker Admin">
     <template #headerContent>
       <div class="flex justify-between items-center">
         <span class="flex-1">
