@@ -9,12 +9,12 @@ import { number } from 'vue-types';
 export const columns: BasicColumn[] = [
   {
     title: '用户名',
-    dataIndex: 'account',
+    dataIndex: 'username',
     width: 120,
   },
   {
     title: '昵称',
-    dataIndex: 'name',
+    dataIndex: 'realName',
     width: 120,
   },
   {
@@ -34,14 +34,14 @@ export const columns: BasicColumn[] = [
     customRender: ({ record }) => {
       const status = record.status;
       const enable = status === '0';
-      const color = enable ? 'green' : 'red';
-      const text = enable ? '在职' : '离职';
+      const color = enable ? 'red' : 'green';
+      const text = enable ? '锁定' : '有效';
       return h(Tag, { color: color }, () => text);
     },
   },
   {
     title: '创建时间',
-    dataIndex: 'createTime',
+    dataIndex: 'createdTime',
     width: 180,
   },
 ];
@@ -78,7 +78,7 @@ export const accountFormSchema: FormSchema[] = [
     show: false,
   },
   {
-    field: 'account',
+    field: 'username',
     label: '用户名',
     component: 'Input',
     helpMessage: ['本字段演示异步验证', '不能输入带有admin的用户名'],
@@ -101,7 +101,7 @@ export const accountFormSchema: FormSchema[] = [
     // ],
   },
   {
-    field: 'pwd',
+    field: 'password',
     label: '密码',
     component: 'InputPassword',
     required: true,
@@ -111,11 +111,12 @@ export const accountFormSchema: FormSchema[] = [
     field: 'sex',
     label: '性别',
     component: 'RadioButtonGroup',
-    defaultValue: 1,
+    defaultValue: 0,
     componentProps: {
       options: [
-        { label: '男', value: 1 },
-        { label: '女', value: 2 },
+        { label: '男', value: 0 },
+        { label: '女', value: 1 },
+        { label: '保密', value: 2 },
       ],
     },
   },
@@ -132,7 +133,7 @@ export const accountFormSchema: FormSchema[] = [
     required: true,
   },
   {
-    field: 'departId',
+    field: 'deptId',
     label: '所属部门',
     component: 'TreeSelect',
     componentProps: {
@@ -152,7 +153,7 @@ export const accountFormSchema: FormSchema[] = [
     required: true,
   },
   {
-    field: 'name',
+    field: 'nickName',
     label: '昵称',
     component: 'Input',
     required: true,
@@ -171,14 +172,14 @@ export const accountFormSchema: FormSchema[] = [
     defaultValue: '0',
     componentProps: {
       options: [
-        { label: '在职', value: '0' },
-        { label: '离职', value: '1' },
+        { label: '锁定', value: '0' },
+        { label: '有效', value: '1' },
       ],
     },
   },
   {
-    label: '备注',
-    field: 'remark',
+    label: '描述',
+    field: 'description',
     component: 'InputTextArea',
   },
 ];

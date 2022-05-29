@@ -2,22 +2,25 @@ import { User, UserVO, UserDTO } from './model/userModel';
 import { defHttp } from '/@/utils/http/axios';
 
 enum Api {
-  Page = '/mate-system/user/page',
-  Set = '/mate-system/user/set',
-  Del = '/mate-system/user/del',
-  SetPassword = '/mate-system/user/set-password',
+  Page = '/vihacker-system/user',
+  Set = '/vihacker-system/user',
+  Del = '/vihacker-system/user/',
+  ResetPassword = '/vihacker-system/user/password/reset',
 }
 
-// 菜单树
+// 列表
 export const page = (params?: UserVO) => defHttp.get<UserDTO>({ url: Api.Page, params });
 
 // 保存
 export const set = (params: User) => defHttp.post<User>({ url: Api.Set, params });
 
+// 修改
+export const update = (params: User) => defHttp.put<User>({ url: Api.Set, params });
+
 // 删除
 export const del = (params: { ids: String }) =>
-  defHttp.post<boolean>({ url: Api.Del + `?ids=${params.ids}` });
+  defHttp.delete<boolean>({ url: Api.Del + `${params.ids}` });
 
-// 设置密码
+//  管理员重置用户密码
 export const userSetPassword = (params?: User) =>
-  defHttp.post<boolean>({ url: Api.SetPassword, params });
+  defHttp.put<boolean>({ url: Api.ResetPassword, params });

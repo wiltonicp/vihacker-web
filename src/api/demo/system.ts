@@ -13,11 +13,11 @@ import {
 import { defHttp } from '/@/utils/http/axios';
 
 enum Api {
-  AccountList = '/mate-system/user/page',
+  AccountList = '/vihacker-system/user',
   IsAccountExist = '/system/accountExist',
-  DeptList = '/mate-system/depart/list',
+  DeptList = '/vihacker-system/dept',
   setRoleStatus = '/system/setRoleStatus',
-  MenuList = '/mate-system/menu/list',
+  MenuList = '/vihacker-system/menu',
   RolePageList = '/mate-system/role/page',
   GetAllRoleList = '/mate-system/role/list',
 }

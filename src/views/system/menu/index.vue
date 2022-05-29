@@ -79,8 +79,7 @@
   }
 
   async function handleDelete(record: Recordable) {
-    const result = await menuCheckChild({ id: record.id });
-    if (result === true) {
+    if (record.hasChildren === true) {
       createMessage.error('此菜单下面包含子菜单，不能删除!');
       return;
     }

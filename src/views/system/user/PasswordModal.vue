@@ -31,7 +31,7 @@
         resetFields();
         setModalProps({
           confirmLoading: false,
-          title: `给账号【${data.record.name}(${data.record.account})】设置密码`,
+          title: `给账号【${data.record.realName}(${data.record.username})】设置密码`,
         });
         isUpdate.value = !!data?.isUpdate;
 

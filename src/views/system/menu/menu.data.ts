@@ -30,7 +30,7 @@ export const columns: BasicColumn[] = [
   },
   {
     title: '排序',
-    dataIndex: 'sort',
+    dataIndex: 'orderNum',
     width: 50,
   },
   {
@@ -123,7 +123,7 @@ export const formSchema: FormSchema[] = [
   },
 
   {
-    field: 'sort',
+    field: 'orderNum',
     label: '排序',
     component: 'InputNumber',
     required: true,
@@ -153,7 +153,7 @@ export const formSchema: FormSchema[] = [
     field: 'permission',
     label: '权限标识',
     component: 'Input',
-    ifShow: ({ values }) => isButton(values.type),
+    // ifShow: ({ values }) => isButton(values.type),
   },
   {
     field: 'status',
@@ -167,45 +167,31 @@ export const formSchema: FormSchema[] = [
       ],
     },
   },
-  {
-    field: 'isExt',
-    label: '是否外链',
-    component: 'RadioButtonGroup',
-    defaultValue: '0',
-    componentProps: {
-      options: [
-        { label: '否', value: '0' },
-        { label: '是', value: '1' },
-      ],
-    },
-    ifShow: ({ values }) => !isButton(values.type),
-  },
+  // {
+  //   field: 'isExt',
+  //   label: '是否外链',
+  //   component: 'RadioButtonGroup',
+  //   defaultValue: '0',
+  //   componentProps: {
+  //     options: [
+  //       { label: '否', value: '0' },
+  //       { label: '是', value: '1' },
+  //     ],
+  //   },
+  //   ifShow: ({ values }) => !isButton(values.type),
+  // },
 
-  {
-    field: 'keepalive',
-    label: '是否缓存',
-    component: 'RadioButtonGroup',
-    defaultValue: '0',
-    componentProps: {
-      options: [
-        { label: '否', value: '0' },
-        { label: '是', value: '1' },
-      ],
-    },
-    ifShow: ({ values }) => isMenu(values.type),
-  },
-
-  {
-    field: 'show',
-    label: '是否显示',
-    component: 'RadioButtonGroup',
-    defaultValue: '0',
-    componentProps: {
-      options: [
-        { label: '是', value: '0' },
-        { label: '否', value: '1' },
-      ],
-    },
-    ifShow: ({ values }) => !isButton(values.type),
-  },
+  // {
+  //   field: 'show',
+  //   label: '是否显示',
+  //   component: 'RadioButtonGroup',
+  //   defaultValue: '0',
+  //   componentProps: {
+  //     options: [
+  //       { label: '是', value: '0' },
+  //       { label: '否', value: '1' },
+  //     ],
+  //   },
+  //   ifShow: ({ values }) => !isButton(values.type),
+  // },
 ];

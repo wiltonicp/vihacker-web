@@ -16,12 +16,14 @@ export interface Menu {
   component: string;
   parentId: string;
   icon: string;
-  sort: string;
+  orderNum: string;
   keepAlive: string;
   type: string;
   hidden: string;
   target: string;
   status: number;
+  hasParent: boolean;
+  hasChildren: boolean;
   menu: [];
 }
 

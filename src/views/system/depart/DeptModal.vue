@@ -9,7 +9,7 @@
   import { BasicForm, useForm } from '/@/components/Form/index';
   import { formSchema } from './dept.data';
 
-  import { departList, departSet } from '/@/api/system/depart';
+  import { departList, departSet, departUpdate } from '/@/api/system/depart';
   export default defineComponent({
     name: 'DeptModal',
     components: { BasicModal, BasicForm },
@@ -34,7 +34,7 @@
           });
         }
         const treeData = await departList();
-        treeData.unshift({ id: '-1', sort: 0, name: '顶级部门' });
+        treeData.unshift({ id: '0', sort: 0, name: '顶级部门' });
         updateSchema({
           field: 'parentId',
           componentProps: { treeData },
@@ -47,7 +47,11 @@
         try {
           const values = await validate();
           setModalProps({ confirmLoading: true });
-          await departSet(values);
+          if(unref(isUpdate)) {
+            await departUpdate(values);
+          }else {
+            await departSet(values);
+          }
           closeModal();
           emit('success');
         } finally {

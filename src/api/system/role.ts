@@ -6,10 +6,10 @@ enum Api {
   Set = '/mate-system/role/set',
   Del = '/mate-system/role/delete',
   SetStatus = '/mate-system/role/set-status',
-  AllList = '/mate-system/role/all-list',
+  AllList = '/vihacker-system/role/options',
 }
 
-// 菜单树
+// 列表
 export const rolePage = (params?: RoleVO) => defHttp.get<RoleDTO>({ url: Api.Page, params });
 
 // 保存

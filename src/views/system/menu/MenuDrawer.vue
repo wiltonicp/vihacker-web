@@ -16,7 +16,7 @@
   import { formSchema } from './menu.data';
   import { BasicDrawer, useDrawerInner } from '/@/components/Drawer';
 
-  import { menuList, menuSet } from '/@/api/system/menu';
+  import { menuList, menuSet, menuUpdate } from '/@/api/system/menu';
   // 定义emit
   const emit = defineEmits(['success', 'register']);
 
@@ -40,7 +40,7 @@
       });
     }
     const treeData = await menuList();
-    treeData.unshift({ id: '-1', name: '顶级菜单' });
+    treeData.unshift({ id: '0', name: '顶级菜单' });
     updateSchema({
       field: 'parentId',
       componentProps: { treeData },
@@ -53,7 +53,11 @@
     try {
       const values = await validate();
       setDrawerProps({ confirmLoading: true });
-      await menuSet(values);
+      if (unref(isUpdate)) {
+        await menuUpdate(values);
+      }else {
+        await menuSet(values);
+      }
       closeDrawer();
       emit('success');
     } finally {

@@ -11,7 +11,7 @@ export type DepartVO = BasicPageParams & {
 export interface Depart {
   id: string;
   name: string;
-  sort: string;
+  orderNum: string;
   parentId: string;
 }
 

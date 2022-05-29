@@ -10,18 +10,19 @@ export type UserVO = BasicPageParams & {
 // 定义用户对象
 export interface User {
   id: string;
-  account: string;
+  username: string;
   password?: string;
-  name: string;
+  nickName: string;
   realName: string;
   avatar: string;
   email: string;
-  telephone: string;
+  mobile: string;
   birthday: string;
-  sex: number;
+  sex: number | string;
+  description: string;
   roleId: string | number;
-  departId: string | number;
-  status: number;
+  deptId: string | number;
+  status: number | string;
   departName: string;
   roleName: string;
 }

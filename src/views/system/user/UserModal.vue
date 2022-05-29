@@ -9,7 +9,7 @@
   import { BasicForm, useForm } from '/@/components/Form/index';
   import { accountFormSchema } from './user.data';
   import { departList } from '/@/api/system/depart';
-  import { set } from '/@/api/system/user';
+  import { set, update } from '/@/api/system/user';
 
   export default defineComponent({
     name: 'UserModal',
@@ -47,7 +47,7 @@
             show: !unref(isUpdate),
           },
           {
-            field: 'departId',
+            field: 'deptId',
             componentProps: { treeData },
           },
         ]);
@@ -59,7 +59,11 @@
         try {
           const values = await validate();
           setModalProps({ confirmLoading: true });
-          await set(values);
+          if (unref(isUpdate)) {
+            await update(values);
+          }else {
+            await set(values);
+          }
           closeModal();
           emit('success', { isUpdate: unref(isUpdate), values: { ...values, id: rowId.value } });
         } finally {

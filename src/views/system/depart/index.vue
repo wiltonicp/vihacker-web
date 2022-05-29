@@ -83,6 +83,10 @@
       }
 
       async function handleDelete(record: Recordable) {
+        if (record.hasChildren === true) {
+          createMessage.error('此菜单下面包含子菜单，不能删除!');
+          return;
+        }
         await departDel({ ids: record.id });
         createMessage.success('删除成功!');
         handleSuccess();

@@ -12,7 +12,7 @@ import md5 from 'js-md5';
 enum Api {
   Login = '/vihacker-uaa/oauth/token',
   Logout = '/vihacker-uaa/auth/logout',
-  GetUserInfo = '/vihacker-uaa/auth/get/user',
+  GetUserInfo = '/vihacker-uaa/auth/user',
   GetPermCode = '/getPermCode',
   GetCaptcha = '/vihacker-uaa/auth/code',
 }
@@ -53,7 +53,7 @@ export function getPermCode() {
 }
 
 export function doLogout() {
-  return defHttp.post({ url: Api.Logout });
+  return defHttp.delete({ url: Api.Logout });
 }
 
 export function getCaptcha() {
