@@ -2,9 +2,9 @@ import { ClientParams, ClientListGetResultModel, ClientListItem } from './model/
 import { defHttp } from '/@/utils/http/axios';
 
 enum Api {
-  Page = '/mate-system/client/page',
-  Set = '/mate-system/client/set',
-  Del = '/mate-system/client/del',
+  Page = '/vihacker-uaa/client',
+  Set = '/vihacker-uaa/client',
+  Del = '/vihacker-uaa/client',
 }
 
 // 分页查询
@@ -15,6 +15,10 @@ export const page = (params: ClientParams) =>
 export const set = (params: ClientListItem) =>
   defHttp.post<ClientListItem>({ url: Api.Set, params });
 
+  // 修改
+export const update = (params: ClientListItem) =>
+  defHttp.put<ClientListItem>({ url: Api.Set, params });
+
 // 删除
 export const del = (params: { ids: String }) =>
-  defHttp.post<boolean>({ url: Api.Del + `?ids=${params.ids}` });
+  defHttp.delete<boolean>({ url: Api.Del + `?clientIds=${params.ids}` });

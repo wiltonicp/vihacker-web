@@ -18,7 +18,7 @@ export const columns: BasicColumn[] = [
   },
   {
     title: '排序',
-    dataIndex: 'sort',
+    dataIndex: 'orderNum',
     width: 50,
   },
   {
@@ -54,12 +54,12 @@ export const columns: BasicColumn[] = [
     },
   },
   {
-    title: '备注',
-    dataIndex: 'description',
+    title: '描述',
+    dataIndex: 'remark',
   },
   {
     title: '创建时间',
-    dataIndex: 'createTime',
+    dataIndex: 'createdTime',
     width: 180,
   },
 ];
@@ -120,8 +120,8 @@ export const formSchema: FormSchema[] = [
     },
   },
   {
-    label: '备注',
-    field: 'description',
+    label: '描述',
+    field: 'remark',
     component: 'InputTextArea',
   },
   {

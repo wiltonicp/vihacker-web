@@ -12,8 +12,8 @@ export interface Role {
   id: string;
   roleName: string;
   roleCode: string;
-  description: string;
-  sort: string;
+  remark: string;
+  orderNum: string;
   status: string;
 }
 

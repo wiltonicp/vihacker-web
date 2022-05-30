@@ -18,7 +18,7 @@
   import { TreeItem } from '/@/components/Tree';
 
   import { getMenuList } from '/@/api/demo/system';
-  import { set } from '/@/api/system/client';
+  import { set, update } from '/@/api/system/client';
 
   const emit = defineEmits(['success', 'register']);
   const isUpdate = ref(true);
@@ -53,7 +53,11 @@
     try {
       const values = await validate();
       setDrawerProps({ confirmLoading: true });
-      await set(values);
+      if (unref(isUpdate)) {
+        await update(values);
+      }else {
+        await set(values);
+      }
       closeDrawer();
       emit('success');
     } finally {

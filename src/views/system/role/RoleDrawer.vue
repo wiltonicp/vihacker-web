@@ -29,7 +29,7 @@
   import { BasicTree, TreeItem } from '/@/components/Tree';
 
   import { getMenuList } from '/@/api/demo/system';
-  import { roleSet } from '/@/api/system/role';
+  import { roleSet, roleUpdate } from '/@/api/system/role';
 
   export default defineComponent({
     name: 'RoleDrawer',
@@ -67,7 +67,11 @@
         try {
           const values = await validate();
           setDrawerProps({ confirmLoading: true });
-          await roleSet(values);
+          if(unref(isUpdate)) {
+            await roleUpdate(values);
+          }else {
+            await roleSet(values);
+          }
           closeDrawer();
           emit('success');
         } finally {

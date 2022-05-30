@@ -10,7 +10,7 @@ export const columns: BasicColumn[] = [
   {
     title: '客户端密钥',
     dataIndex: 'clientSecret',
-    width: 100,
+    width: 80,
   },
   {
     title: '授权类型',
@@ -20,22 +20,22 @@ export const columns: BasicColumn[] = [
   {
     title: '授权范围',
     dataIndex: 'scope',
-    width: 90,
+    width: 80,
   },
   {
     title: '令牌过期秒数',
     dataIndex: 'accessTokenValidity',
-    width: 130,
+    width: 100,
   },
   {
     title: '令牌过期秒数',
     dataIndex: 'refreshTokenValidity',
-    width: 130,
+    width: 100,
   },
   {
     title: '创建时间',
-    dataIndex: 'createTime',
-    width: 100,
+    dataIndex: 'createdTime',
+    width: 110,
   },
 ];
 
