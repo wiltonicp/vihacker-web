@@ -1,3 +1,8 @@
+
+RUN yarn install
+
+RUN yarn build
+
 FROM nginx
 MAINTAINER Ranger wilton.icp@gmail.com
 
