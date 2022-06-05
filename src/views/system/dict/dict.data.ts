@@ -19,7 +19,7 @@ export const columns: BasicColumn[] = [
   },
   {
     title: '排序',
-    dataIndex: 'sort',
+    dataIndex: 'orderNum',
     width: 90,
   },
 ];
@@ -66,7 +66,7 @@ export const formSchema: FormSchema[] = [
     component: 'Input',
   },
   {
-    field: 'sort',
+    field: 'orderNum',
     label: '排序',
     component: 'InputNumber',
   },
@@ -107,7 +107,7 @@ export const subFormSchema: FormSchema[] = [
     component: 'Input',
   },
   {
-    field: 'sort',
+    field: 'orderNum',
     label: '排序',
     component: 'InputNumber',
   },

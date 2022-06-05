@@ -14,9 +14,9 @@ export interface Dict {
   code: string;
   dictKey: string;
   dictValue: string;
-  sort: string;
+  orderNum: string;
   remark: string;
-  createTime: string;
+  createdTime: string;
 }
 
 // 根据字典对象生成响应模型

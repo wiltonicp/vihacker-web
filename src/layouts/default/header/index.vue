@@ -17,6 +17,7 @@
         :sider="false"
       />
       <LayoutBreadcrumb v-if="getShowContent && getShowBread" :theme="getHeaderTheme" />
+      <TenantTrigger />
     </div>
     <!-- left end -->
 
@@ -63,6 +64,7 @@
   import { AppLogo } from '/@/components/Application';
   import LayoutMenu from '../menu/index.vue';
   import LayoutTrigger from '../trigger/index.vue';
+  import TenantTrigger from '../trigger/TenantTrigger.vue';
 
   import { AppSearch } from '/@/components/Application';
 
@@ -87,6 +89,7 @@
       Header: Layout.Header,
       AppLogo,
       LayoutTrigger,
+      TenantTrigger,
       LayoutBreadcrumb,
       LayoutMenu,
       UserDropDown,
@@ -198,4 +201,5 @@
 </script>
 <style lang="less">
   @import './index.less';
+  .vben-layout-tenant-list{display:flex;padding:0 8px;align-items:center}.vben-layout-tenant-list--light .vben-layout-tenant-name{color:#000000d9}.vben-layout-tenant-list--dark .vben-layout-tenant-name{color:#fff9}
 </style>

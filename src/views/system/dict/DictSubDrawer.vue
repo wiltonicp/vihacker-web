@@ -15,7 +15,7 @@
   import { BasicForm, useForm } from '/@/components/Form/index';
   import { subFormSchema } from './dict.data';
   import { BasicDrawer, useDrawerInner } from '/@/components/Drawer';
-  import { set } from '/@/api/system/dict';
+  import { set, update } from '/@/api/system/dict';
 
   const emit = defineEmits(['success', 'register']);
   const isUpdate = ref(true);
@@ -43,7 +43,11 @@
     try {
       const values = await validate();
       setDrawerProps({ confirmLoading: true });
-      await set(values);
+      if(unref(isUpdate)) {
+        await update(values);
+      }else {
+        await set(values);
+      }
       closeDrawer();
       emit('success');
     } finally {

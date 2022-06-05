@@ -1,4 +1,12 @@
 <template>
+  <span >
+    <a-tooltip placement="bottom" title="切换">
+      <!-- <template #title>
+        <span>切换</span>
+      </template> -->
+      <switcher-outlined />
+    </a-tooltip>
+  </span>
   <Dropdown placement="bottomLeft" :overlayClassName="`${prefixCls}-dropdown-overlay`">
     <span :class="[prefixCls, `${prefixCls}--${theme}`]" class="flex">
       <img :class="`${prefixCls}__header`" :src="getUserInfo.avatar" />
@@ -37,7 +45,7 @@
 <script lang="ts">
   // components
   import { Dropdown, Menu } from 'ant-design-vue';
-
+  import { SwitcherOutlined } from '@ant-design/icons-vue';
   import { defineComponent, computed } from 'vue';
 
   import { DOC_URL } from '/@/settings/siteSetting';
@@ -61,6 +69,7 @@
     components: {
       Dropdown,
       Menu,
+      SwitcherOutlined,
       MenuItem: createAsyncComponent(() => import('./DropMenuItem.vue')),
       MenuDivider: Menu.Divider,
       LockAction: createAsyncComponent(() => import('../lock/LockModal.vue')),
